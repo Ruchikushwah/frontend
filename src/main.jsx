@@ -16,6 +16,7 @@ import Dashboard from "./Admin/Dashboard.jsx";
 import ManageChapter from "./Admin/ManageChapter.jsx";
 import ManageTopic from "./Admin/ManageTopic.jsx";
 import ManagePost from "./Admin/ManagePost.jsx";
+import ManageAuthor from "./Admin/ManageAuthor.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,8 @@ const router = createBrowserRouter(
         <Route path="managechapter" element={<ManageChapter />} />
         <Route path="managetopic" element={<ManageTopic />} />
         <Route path="managepost" element={<ManagePost />} />
+        <Route path="manageauthor" element={<ManageAuthor />} />
+       
       </Route>
     </>
   )
