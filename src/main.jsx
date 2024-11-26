@@ -16,24 +16,24 @@ import ManagePost from './Admin/ManagePost.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-  <>
+    <>
       <Route path='/' element={<Layout />}>
         <Route path='' element={<Home />} />
 
-       
+
 
       </Route>
-       <Route path='/admin' element={<AdminLayout/>}>
-       <Route path='managecourse' element={<ManageCourse/>}/>
-       <Route path='managechapter' element={<ManageChapter/>}/>
-       <Route path='managetopic' element={<ManageTopic/>}/>
-       <Route path='managepost' element={<ManagePost/>}/>
-         
-          
-       </Route>
-       </>
+      <Route path='/admin' element={<AdminLayout />}>
+        <Route path='managecourse' element={<ManageCourse />} />
+        <Route path='managechapter' element={<ManageChapter />} />
+        <Route path='managetopic' element={<ManageTopic />} />
+        <Route path='managepost' element={<ManagePost />} />
 
-  
+
+      </Route>
+    </>
+
+
   )
 )
 

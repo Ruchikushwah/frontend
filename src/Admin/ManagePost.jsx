@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const ManagePost = () => {
   return (
@@ -18,7 +18,6 @@ const ManagePost = () => {
             Insert Post
           </button>
         </div>
-
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left text-gray-500">
@@ -48,17 +47,20 @@ const ManagePost = () => {
                 <td className="px-6 py-4">react-basics</td>
                 <td className="px-6 py-4">Introduction to React.</td>
                 <td className="px-6 py-4">
-                  <button className="text-blue-500 hover:underline">Edit</button>
-                  <button className="ml-2 text-red-500 hover:underline">Delete</button>
+                  <button className="text-blue-500 hover:underline">
+                    Edit
+                  </button>
+                  <button className="ml-2 text-red-500 hover:underline">
+                    Delete
+                  </button>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ManagePost
+export default ManagePost;

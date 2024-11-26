@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const ManageChapter = () => {
   const [isOpen, setIsOpen] = useState(false); // State to control popup visibility
@@ -31,7 +31,6 @@ const ManageChapter = () => {
           </button>
         </div>
 
-
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-400 uppercase bg-gray-100">
@@ -60,8 +59,12 @@ const ManageChapter = () => {
                 <td className="px-6 py-4">react-basics</td>
                 <td className="px-6 py-4">Introduction to React.</td>
                 <td className="px-6 py-4 gap-4">
-                  <button className="text-blue-500 hover:underline">Edit</button>
-                  <button className="ml-2 text-red-500 hover:underline">Delete</button>
+                  <button className="text-blue-500 hover:underline">
+                    Edit
+                  </button>
+                  <button className="ml-2 text-red-500 hover:underline">
+                    Delete
+                  </button>
 
                   <button
                     onClick={handleOpen}
@@ -74,7 +77,9 @@ const ManageChapter = () => {
                   {isOpen && (
                     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
                       <div className="w-full max-w-md p-6 bg-white rounded shadow-lg">
-                        <h2 className="text-lg font-bold text-gray-700 mb-4">Form Title</h2>
+                        <h2 className="text-lg font-bold text-gray-700 mb-4">
+                          Form Title
+                        </h2>
 
                         {/* Form */}
                         <form onSubmit={handleSubmit}>
@@ -147,13 +152,12 @@ const ManageChapter = () => {
                   )}
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ManageChapter
+export default ManageChapter;
