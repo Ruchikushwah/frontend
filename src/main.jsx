@@ -5,11 +5,9 @@ import App from './App.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Home from './Home/Home.jsx'
-
-
-
 import AdminLayout from './Admin/AdminLayout.jsx'
 import ManageCourse from './Admin/ManageCourse.jsx'
+import Dashboard from './Admin/Dashboard.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +20,7 @@ const router = createBrowserRouter(
       </Route>
        <Route path='/admin' element={<AdminLayout/>}>
        <Route path='managecourse' element={<ManageCourse/>}/>
+       <Route path='dashboard' element={<Dashboard/>}/>
          
           
        </Route>
