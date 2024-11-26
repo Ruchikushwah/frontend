@@ -24,6 +24,7 @@ const router = createBrowserRouter(
         <Route path="" element={<Home />} />
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
+        <Route path="dashboard" element={<Dashboard/>} />
         <Route path="managecourse" element={<ManageCourse />} />
         <Route path="managechapter" element={<ManageChapter />} />
         <Route path="managetopic" element={<ManageTopic />} />

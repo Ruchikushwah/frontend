@@ -1,7 +1,8 @@
 import React from 'react'
 import AdminHeader from './AdminHeader'
 import { Outlet } from 'react-router-dom'
-import Sidebar from './sidebar';
+import Sidebar from './sidebar'
+
 
 
 
