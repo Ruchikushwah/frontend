@@ -20,7 +20,9 @@ const router = createBrowserRouter(
       </Route>
        <Route path='/admin' element={<AdminLayout/>}>
        <Route path='managecourse' element={<ManageCourse/>}/>
-       <Route path='dashboard' element={<Dashboard/>}/>
+       <Route path='managechapter' element={<ManageChapter/>}/>
+       <Route path='managetopic' element={<ManageTopic/>}/>
+       <Route path='managepost' element={<ManagePost/>}/>
          
           
        </Route>

@@ -12,18 +12,22 @@ import Sidebar from './sidebar';
 
 const AdminLayout = () => {
     return (
-      <>
-        <div className="h-screen w-full">
-          <AdminHeader />
-          <div className="flex">
-           <Sidebar/>
+        <>
 
-            <Outlet />
-            
-          </div>
-        </div>
-      </>
-    );
+            <div className="h-screen w-full">
+            <AdminHeader />
+                <div className="flex">  
+                    <Sidebar/>
+                
+                    <Outlet />
+                </div>
+            </div>
+
+
+        </>
+
+
+    )
 }
 
 export default AdminLayout
