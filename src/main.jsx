@@ -10,6 +10,9 @@ import Home from './Home/Home.jsx'
 
 import AdminLayout from './Admin/AdminLayout.jsx'
 import ManageCourse from './Admin/ManageCourse.jsx'
+import ManageChapter from './Admin/ManageChapter.jsx'
+import ManageTopic from './Admin/ManageTopic.jsx'
+import ManagePost from './Admin/ManagePost.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +25,9 @@ const router = createBrowserRouter(
       </Route>
        <Route path='/admin' element={<AdminLayout/>}>
        <Route path='managecourse' element={<ManageCourse/>}/>
+       <Route path='managechapter' element={<ManageChapter/>}/>
+       <Route path='managetopic' element={<ManageTopic/>}/>
+       <Route path='managepost' element={<ManagePost/>}/>
          
           
        </Route>

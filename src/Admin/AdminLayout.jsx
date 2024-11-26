@@ -10,11 +10,13 @@ const AdminLayout = () => {
 
             <div className="h-screen w-full">
             <AdminHeader />
-                <div className="flex">  
+               <div className=''>
+               <div className="flex">  
                     <Sidebar/>
                 
                     <Outlet />
                 </div>
+               </div>
             </div>
 
 

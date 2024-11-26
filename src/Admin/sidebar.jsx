@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 const Sidebar = () => {
   return (
     <>
-    <div className="flex flex-1 gap-5">
-      <div className="w-2/12 flex h-screen">
+    <div className="flex flex-1 ">
+      <div className=" flex h-screen">
           <aside className="w-64 bg-gray-900 p-4">
 
               <nav className="p-2 space-y-1">
@@ -23,6 +23,27 @@ const Sidebar = () => {
                       </svg>
                       <span>Manage Course</span>
                   </NavLink>
+                 
+                  <NavLink  to="managechapter" className="flex items-center space-x-2 text-gray-400  hover:bg-gray-700  p-2 rounded">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 14l9-5-9-5-9 5 9 5zm0 7v-5.5l4.5-2.5m-9 0L12 21"></path>
+                      </svg>
+                      <span>Manage Chapter</span>
+                  </NavLink>
+                  <NavLink  to="managetopic" className="flex items-center space-x-2 text-gray-400  hover:bg-gray-700  p-2 rounded">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 14l9-5-9-5-9 5 9 5zm0 7v-5.5l4.5-2.5m-9 0L12 21"></path>
+                      </svg>
+                      <span>Manage Topic</span>
+                  </NavLink>
+                  <NavLink  to="managepost" className="flex items-center space-x-2 text-gray-400  hover:bg-gray-700  p-2 rounded">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 14l9-5-9-5-9 5 9 5zm0 7v-5.5l4.5-2.5m-9 0L12 21"></path>
+                      </svg>
+                      <span>Manage Post</span>
+                  </NavLink>
+                 
+                 
                  
               </nav>
           </aside>
