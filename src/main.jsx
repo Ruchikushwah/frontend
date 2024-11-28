@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -18,6 +18,8 @@ import ManageTopic from "./Admin/ManageTopic.jsx";
 import ManagePost from "./Admin/ManagePost.jsx";
 import ManageAuthor from "./Admin/ManageAuthor.jsx";
 import InsertCourse from "./Admin/InsertCourse.jsx";
+import Register from "./Auth/Register.jsx";
+import Login from "./Auth/Login.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
