@@ -1,6 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ManageCourse = () => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [record, setRecord] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/courses");
+        const data = await response.json();
+        setRecord(data);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  const handleCourse = async () => {
+    const data = { title, description };
+
+    let resp = await fetch("http://127.0.0.1:8000/api/courses", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "content-Type": "application/json",
+      },
+    });
+    resp = await resp.json();
+    alert(resp.message);
+    setRecord(resp);
+  };
+
+  const handleDelete = async (id) => {
+    let resp = await fetch(`http://127.0.0.1:8000/api/courses/${id}`, {
+      method: "DELETE",
+    });
+    if (resp.ok) {
+      console.log(`course ${id} deleted successfully`);
+    } else {
+      console.error("failed to delete course", resp);
+    }
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="relative overflow-x-auto w-full py-10 px-8">
@@ -14,9 +60,75 @@ const ManageCourse = () => {
             placeholder="Search..."
             className="p-2 border rounded w-full md:w-64 focus:outline-none"
           />
-          <button className="px-4 py-2 font-semibold text-white bg-teal-500 rounded hover:bg-teal-600 w-full md:w-auto">
-            Insert Course
-          </button>
+          <div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="px-4 py-2 text-white bg-teal-500 rounded hover:teal-blue-600 ml-6"
+            >
+              Insert Course
+            </button>
+            {isOpen && (
+              <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                <div className="w-full max-w-md p-6 bg-white rounded shadow-lg">
+                  <h2 className="text-lg font-bold text-gray-700 mb-4">
+                    Insert Courses
+                  </h2>
+
+                  <div className="mb-4">
+                    <label
+                      htmlFor="title"
+                      className="block text-sm font-medium text-gray-600 mb-1"
+                    >
+                      Course Title
+                    </label>
+                    <input
+                      type="text"
+                      id="title"
+                      className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
+                      placeholder="course title"
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <label
+                      htmlFor="description"
+                      className="block text-sm font-medium text-gray-600 mb-1"
+                    >
+                      Course Description
+                    </label>
+                    <textarea
+                      id="description"
+                      className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
+                      placeholder="course Description"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      rows="4"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex justify-end gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen(!isOpen)}
+                      className="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-600"
+                      onClick={() => setIsOpen(!isOpen)}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="overflow-x-auto">
@@ -41,20 +153,30 @@ const ManageCourse = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b hover:bg-gray-50">
-                <td className="px-6 py-4">1</td>
-                <td className="px-6 py-4">React Basics</td>
-                <td className="px-6 py-4">react-basics</td>
-                <td className="px-6 py-4">Introduction to React.</td>
-                <td className="px-6 py-4">
-                  <button className="text-blue-500 hover:underline">
-                    Edit
-                  </button>
-                  <button className="ml-2 text-red-500 hover:underline">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {record.map((course) => (
+                <tr
+                  className="bg-white border-b hover:bg-gray-50"
+                  key={course.id}
+                >
+                  <td className="px-6 py-4">{course.id}</td>
+                  <td className="px-6 py-4">{course.title}</td>
+                  <td className="px-6 py-4">{course.course_slug}</td>
+                  <td className="px-6 py-4">{course.description}</td>
+                  <td className="px-6 py-4">
+                    <button className="text-blue-500 hover:underline">
+                      Edit
+                    </button>
+                    <button
+                      className="ml-2 text-red-500 hover:underline"
+                      onClick={handleDelete}
+                    >
+                      Delete
+                    </button>
+               
+
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

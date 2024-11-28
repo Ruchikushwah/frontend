@@ -82,7 +82,7 @@ const ManageChapter = () => {
                         </h2>
 
                         {/* Form */}
-                        <form onSubmit={handleSubmit}>
+                       
                           <div className="mb-4">
                             <label
                               htmlFor="name"
@@ -146,7 +146,7 @@ const ManageChapter = () => {
                               Submit
                             </button>
                           </div>
-                        </form>
+                        
                       </div>
                     </div>
                   )}
