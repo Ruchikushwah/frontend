@@ -12,21 +12,20 @@ const Sidebar = () => {
 
   return (
     <div className="flex">
-      {/* Sidebar */}
-      <div
+     <div
         className={`${
           isOpen ? "w-64" : "w-16"
         } bg-gray-800 h-screen p-5 pt-8 duration-300 relative`}
       >
-        {/* Toggle Button */}
-        <button
+       <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute  top-9 w-7 h-7 bg-white border border-gray-700 rounded-full flex justify-center items-center cursor-pointer"
+          className="absolute  top-9 w-7 h-7 bg-white border border-gray-700 rounded-full flex justify-center
+           items-center cursor-pointer"
         >
           {isOpen ? "<" : ">"}
         </button>
 
-        {/* Navigation Menu */}
+        
         <ul className="mt-10 items-center">
           <NavLink to="dashboard">
             <li

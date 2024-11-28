@@ -26,15 +26,16 @@ const router = createBrowserRouter(
         <Route path="" element={<Home />} />
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<Dashboard/>} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="managecourse" element={<ManageCourse />} />
         <Route path="insertcourse" element={<InsertCourse/>}/>
         <Route path="managechapter" element={<ManageChapter />} />
         <Route path="managetopic" element={<ManageTopic />} />
         <Route path="managepost" element={<ManagePost />} />
         <Route path="manageauthor" element={<ManageAuthor />} />
-       
       </Route>
+      <Route path="register" element={<Register />} />
+      <Route path="login" element={<Login />} />
     </>
   )
 );
