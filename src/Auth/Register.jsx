@@ -20,7 +20,7 @@ const Register = () => {
   };
 
   return (
-    <div className=" flex w-full flex-col items-center justify-center px-[8%] py-[5%]  ">
+    <div className=" flex w-full flex-col items-center justify-center px-[8%] py-[5%] ">
       <h2 className="text-2xl font-bold text-center text-gray-700">Register</h2>
 
       <div className="flex items-center justify-center  w-6/12 shadow-md px-10 py-5 ">

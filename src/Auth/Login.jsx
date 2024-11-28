@@ -4,6 +4,19 @@ import React, { useState } from "react";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleLogin = async () => {
+        const data = {email:email,password:password};
+        let resp = await fetch("http://127.0.0.1:8000/api/auth/login",{
+            method:"POST",
+            body:JSON.stringify(data),
+            headers:{
+                "Content-Type" :"application/json",
+            },
+        });
+        resp = await resp.json();
+        alert(resp.message);
+    };
   return (
     <div className=" flex w-full flex-col items-center justify-center px-[8%] py-[5%] ">
       <h2 className="text-2xl font-bold text-center text-gray-700">Login</h2>
@@ -38,6 +51,7 @@ const Login = () => {
             </div>
           </div>
           <button
+          onClick={()=>handleLogin()}
             type="submit"
             className="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600"
           >
