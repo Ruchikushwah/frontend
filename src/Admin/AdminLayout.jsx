@@ -3,7 +3,7 @@ import AdminHeader from "./AdminHeader";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./sidebar";
 import { BeatLoader } from "react-spinners";
-import { div } from "framer-motion/client";
+
 
 const AdminLayout = () => {
   return (

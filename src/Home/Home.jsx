@@ -4,8 +4,8 @@ import Card from "../Card";
 const Home = () => {
   return (
     <>
-      <div className=" flex items-center justify-center h-[500px] flex-col">
-        <div className="w-6/12 text-center  gap-5 flex flex-col items-center">
+      <div className=" flex items-center justify-center h-[500px] flex-col bg-slate-300">
+        <div className="w-6/12 text-center  gap-5 flex flex-col items-center ">
           <h2 className="text-5xl font-semibold text-[#092635]">
             From Syntax To Success
           </h2>
@@ -16,11 +16,11 @@ const Home = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="p-2 border rounded w-full md:w-64 focus:outline-none"
+            className=" px-4 py-3   border rounded-3xl  p-10 focus:outline-none"
           />
         </div>
       </div>
-      <div className="px-10 p-5  grid grid-cols-4 gap-5">
+      <div className=" px-4 p-1  grid grid-cols-4 gap-5">
         <Card />
         <Card />
         <Card />
