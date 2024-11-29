@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ManageCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [record, setRecord] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -45,7 +47,7 @@ const ManageCourse = () => {
     }
   };
 
-  const [isOpen, setIsOpen] = useState(false);
+  
 
   return (
     <>
@@ -120,7 +122,7 @@ const ManageCourse = () => {
                     <button
                       type="submit"
                       className="px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-600"
-                      onClick={() => setIsOpen(!isOpen)}
+                      onClick={() => {handleCourse(); setIsOpen(!isOpen);}}
                     >
                       Submit
                     </button>
@@ -163,17 +165,18 @@ const ManageCourse = () => {
                   <td className="px-6 py-4">{course.course_slug}</td>
                   <td className="px-6 py-4">{course.description}</td>
                   <td className="px-6 py-4">
-                    <button className="text-blue-500 hover:underline">
+                  <Link
+                      to={`update/${course.id}`}
+                      className="text-blue-500 hover:underline"
+                    >
                       Edit
-                    </button>
+                    </Link>
                     <button
                       className="ml-2 text-red-500 hover:underline"
-                      onClick={handleDelete}
+                      onClick={() => handleDelete(course.id)}
                     >
                       Delete
                     </button>
-               
-
                   </td>
                 </tr>
               ))}
