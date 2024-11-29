@@ -22,9 +22,9 @@ const Register = () => {
       resp = await resp.json();
       alert(resp.message);
 
-      if (resp.success) {
+      if (resp.user) {
         
-        navigate("login"); 
+        navigate("/login"); 
       }
     } catch (error) {
       console.error("Error during registration:", error);
