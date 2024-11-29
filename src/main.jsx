@@ -21,7 +21,7 @@ import InsertCourse from "./Admin/InsertCourse.jsx";
 import Register from "./Auth/Register.jsx";
 import Login from "./Auth/Login.jsx";
 
-const Dashboard = lazy(()=> wait(1000).then(()=> import('./Admin/Dashboard.jsx')))
+const Dashboard = lazy(()=> wait(500).then(()=> import('./Admin/Dashboard.jsx')))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
