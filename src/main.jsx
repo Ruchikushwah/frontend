@@ -20,6 +20,8 @@ import ManageAuthor from "./Admin/ManageAuthor.jsx";
 import InsertCourse from "./Admin/InsertCourse.jsx";
 import Register from "./Auth/Register.jsx";
 import Login from "./Auth/Login.jsx";
+import Update from "./Admin/Update.jsx";
+import ChapterEdit from "./Admin/ChapterEdit.jsx";
 
 const Dashboard = lazy(()=> wait(1000).then(()=> import('./Admin/Dashboard.jsx')))
 
@@ -31,13 +33,14 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="managecourse" element={<ManageCourse />} />
+        <Route path="/admin/managecourse" element={<ManageCourse />} />
         <Route path="insertcourse" element={<InsertCourse />} />
-        <Route path="managechapter" element={<ManageChapter />} />
-        <Route path="managetopic" element={<ManageTopic />} />
-        <Route path="managepost" element={<ManagePost />} />
-        <Route path="manageauthor" element={<ManageAuthor />} />
+        <Route path="/admin/managechapter" element={<ManageChapter />} />
+        <Route path="/admin/managetopic" element={<ManageTopic />} />
+        <Route path="/admin/managepost" element={<ManagePost />} />
+        <Route path="/admin/manageauthor" element={<ManageAuthor />} />
         <Route path="/admin/managecourse/update/:id" element={<Update/>}/>
+        <Route path="/admin/managechapter/chapterEdit/:id" element={<ChapterEdit/>}/>
         
          
       </Route>

@@ -5,7 +5,7 @@ import Description from "./Description";
 import { useParams } from "react-router-dom";
 import Image from "./Image";
 
-const Update = () => {
+const ChapterEdit = () => {
   const { id } = useParams();
   const [record, setRecord] = useState("");
 
@@ -35,4 +35,4 @@ const Update = () => {
   );
 };
 
-export default Update;
+export default ChapterEdit;

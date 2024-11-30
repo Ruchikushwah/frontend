@@ -1,18 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ManageChapter = () => {
   const [isOpen, setIsOpen] = useState(false); // State to control popup visibility
 
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
+  useEffect(() => {
+    const fetchChapter = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/chapter");
+        const data = await response.json();
+        setRecord(data);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    alert("Form submitted!");
-    setIsOpen(false); // Close the popup after submission
+    fetchChapter();
+  }, []);
+  const handleChapter = async () => {
+    const data = { title, description };
+
+    let resp = await fetch("http://127.0.0.1:8000/api/chapter", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "content-Type": "application/json",
+      },
+    });
+    resp = await resp.json();
+    alert(resp.message);
+    setRecord(resp);
   };
-
+ 
   return (
     <>
       <div className="relative overflow-x-auto w-full py-10 px-8">
@@ -67,7 +85,7 @@ const ManageChapter = () => {
                   </button>
 
                   <button
-                    onClick={handleOpen}
+                    
                     className="px-4 py-2 text-white bg-teal-500 rounded hover:teal-blue-600 ml-6"
                   >
                     add Topic
@@ -134,7 +152,7 @@ const ManageChapter = () => {
                           <div className="flex justify-end gap-2">
                             <button
                               type="button"
-                              onClick={handleClose}
+                              onClick={() => setIsOpen(!isOpen)}
                               className="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300"
                             >
                               Cancel
@@ -142,6 +160,7 @@ const ManageChapter = () => {
                             <button
                               type="submit"
                               className="px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-600"
+                              onClick={() => {handleChapter(); setIsOpen(!isOpen);}}
                             >
                               Submit
                             </button>
