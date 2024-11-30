@@ -23,7 +23,7 @@ import Login from "./Auth/Login.jsx";
 import Update from "./Admin/Update.jsx";
 import ChapterEdit from "./Admin/ChapterEdit.jsx";
 
-const Dashboard = lazy(()=> wait(1000).then(()=> import('./Admin/Dashboard.jsx')))
+const Dashboard = lazy(()=> wait(500).then(()=> import('./Admin/Dashboard.jsx')))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
