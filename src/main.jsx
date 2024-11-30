@@ -20,6 +20,7 @@ import ManageAuthor from "./Admin/ManageAuthor.jsx";
 import InsertCourse from "./Admin/InsertCourse.jsx";
 import Register from "./Auth/Register.jsx";
 import Login from "./Auth/Login.jsx";
+import Update from "./Admin/Update.jsx";
 
 const Dashboard = lazy(()=> wait(500).then(()=> import('./Admin/Dashboard.jsx')))
 
