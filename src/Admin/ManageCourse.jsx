@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const ManageCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image,setImage] = useState("");
   const [record, setRecord] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +23,7 @@ const ManageCourse = () => {
   }, []);
 
   const handleCourse = async () => {
-    const data = { title, description };
+    const data = { title, description,image };
 
     let resp = await fetch("http://127.0.0.1:8000/api/courses", {
       method: "POST",
@@ -111,6 +112,25 @@ const ManageCourse = () => {
                     ></textarea>
                   </div>
 
+                  <div className="mb-4">
+                    <label
+                      htmlFor="image"
+                      className="block text-sm font-medium text-gray-600 mb-1"
+                      
+                    >
+                      Course Image
+                    </label>
+                    <input
+                    type="file"
+                      id="image"
+                      className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
+                      placeholder="course image"
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      
+                      />
+                  </div>
+
                   <div className="flex justify-end gap-2">
                     <button
                       type="button"
@@ -122,7 +142,10 @@ const ManageCourse = () => {
                     <button
                       type="submit"
                       className="px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-600"
-                      onClick={() => {handleCourse(); setIsOpen(!isOpen);}}
+                      onClick={() => {
+                        handleCourse();
+                        setIsOpen(!isOpen);
+                      }}
                     >
                       Submit
                     </button>
@@ -147,6 +170,9 @@ const ManageCourse = () => {
                   Course Slug
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Course Image
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Description
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -163,9 +189,10 @@ const ManageCourse = () => {
                   <td className="px-6 py-4">{course.id}</td>
                   <td className="px-6 py-4">{course.title}</td>
                   <td className="px-6 py-4">{course.course_slug}</td>
+                  <td className="px-6 py-4">{course.image}</td>
                   <td className="px-6 py-4">{course.description}</td>
                   <td className="px-6 py-4">
-                  <Link
+                    <Link
                       to={`update/${course.id}`}
                       className="text-blue-500 hover:underline"
                     >

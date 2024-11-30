@@ -27,6 +27,17 @@ const InsertCourse = () => {
             required
           />
         </div>
+        <div className='mb-4'>
+          <label htmlFor="image" className="block text-gray-600 font-medium mb-2">Course Image</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+            
+            required
+          />
+        </div>
 
       
         </form>
