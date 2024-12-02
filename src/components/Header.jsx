@@ -6,7 +6,7 @@ const Header = () => {
     <header className=' bg-black text-white fixed top-0 left-0 right-0 '>
       <nav className=' px-1 py-1 max-w-5xl mx-auto flex justify-between items-center'>
         <NavLink  to="/" className="text-xl font-bold text-white items-center">
-        <img src="public/logo_LS-removebg-preview.png" alt="" width="100" height="200" className= ' flex items-center' />
+        <img src="logo_LS-removebg-preview.png" alt="" width="100" height="200" className= ' flex items-center' />
         </NavLink>
         
         <div  className='text-white lg:flex gap-4 items-center hidden '>

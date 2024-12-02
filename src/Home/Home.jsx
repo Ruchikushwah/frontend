@@ -5,19 +5,19 @@ import { NavLink } from "react-router-dom";
 
 
 const Home = () => {
-  const [course,setCourse] = useState([]);
+  const [courses, setCourses] = useState([]);
   useEffect(() => {
-    async function fetchCourse() {
+    async function fetchCourses() {
       let url = `http://127.0.0.1:8000/api/courses`;
       const response = await fetch(url);
       const data = await response.json();
-      setCourse(data);
+      setCourses(data);
       
     }
-    fetchCourse();
+    fetchCourses();
   })
 
-  console.log(course);
+  console.log(courses);
   return (
     <>
       <div className=" flex items-center justify-center h-[500px] flex-col bg-black">
@@ -38,7 +38,7 @@ const Home = () => {
         <div></div>
         
         <div>
-          <Card course={course} />
+          <Card courses={courses} />
         </div>
         <div></div>
         

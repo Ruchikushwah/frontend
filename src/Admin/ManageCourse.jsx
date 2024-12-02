@@ -4,37 +4,55 @@ import { Link } from "react-router-dom";
 const ManageCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [image,setImage] = useState("");
+  const [image, setImage] = useState("");
   const [record, setRecord] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const fetchCourses = async () => {
+    async function fetchCourse() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/courses");
+        const url = `http://127.0.0.1:8000/api/courses`;
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
-        setRecord(data);
+
+        setRecord(data.data);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
-    };
-
-    fetchCourses();
+    }
+    fetchCourse();
   }, []);
-
   const handleCourse = async () => {
-    const data = { title, description,image };
+    if (!title || !description || !image) {
+      alert("All fields are required.");
+      return;
+    }
 
-    let resp = await fetch("http://127.0.0.1:8000/api/courses", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "content-Type": "application/json",
-      },
-    });
-    resp = await resp.json();
-    alert(resp.message);
-    setRecord(resp);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("image", image);
+    try {
+      let resp = await fetch("http://127.0.0.1:8000/api/courses", {
+        method: "POST",
+
+        body: formData,
+      });
+
+      if (!resp.ok) {
+        throw new Error(`Error: ${resp.statusText}`);
+      }
+
+      resp = await resp.json();
+      alert(resp.message);
+      setRecord(resp);
+    } catch (error) {
+      console.error("Error handling course:", error);
+      alert("An error occurred while handling the course.");
+    }
   };
 
   const handleDelete = async (id) => {
@@ -47,8 +65,6 @@ const ManageCourse = () => {
       console.error("failed to delete course", resp);
     }
   };
-
-  
 
   return (
     <>
@@ -116,19 +132,16 @@ const ManageCourse = () => {
                     <label
                       htmlFor="image"
                       className="block text-sm font-medium text-gray-600 mb-1"
-                      
                     >
                       Course Image
                     </label>
                     <input
-                    type="file"
+                      type="file"
                       id="image"
                       className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
                       placeholder="course image"
-                      value={image}
-                      onChange={(e) => setImage(e.target.value)}
-                      
-                      />
+                      onChange={(e) => setImage(e.target.files[0])}
+                    />
                   </div>
 
                   <div className="flex justify-end gap-2">
@@ -189,7 +202,12 @@ const ManageCourse = () => {
                   <td className="px-6 py-4">{course.id}</td>
                   <td className="px-6 py-4">{course.title}</td>
                   <td className="px-6 py-4">{course.course_slug}</td>
-                  <td className="px-6 py-4">{course.image}</td>
+                  <td className="px-6 py-4">
+                    <img
+                      src={`http://127.0.0.1:8000/images/${course.image}`}
+                      className="w-16 h-16 object-cover"
+                    />
+                  </td>
                   <td className="px-6 py-4">{course.description}</td>
                   <td className="px-6 py-4">
                     <Link
