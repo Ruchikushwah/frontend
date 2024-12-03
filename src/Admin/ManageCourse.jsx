@@ -19,6 +19,7 @@ const ManageCourse = () => {
         const data = await response.json();
 
         setRecord(data.data);
+        console.log(record);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
@@ -32,9 +33,9 @@ const ManageCourse = () => {
     }
 
     const formData = new FormData();
+    formData.append("image", image);
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("image", image);
     try {
       let resp = await fetch("http://127.0.0.1:8000/api/courses", {
         method: "POST",
@@ -204,8 +205,9 @@ const ManageCourse = () => {
                   <td className="px-6 py-4">{course.course_slug}</td>
                   <td className="px-6 py-4">
                     <img
-                      src={`http://127.0.0.1:8000/images/${course.image}`}
-                      className="w-16 h-16 object-cover"
+                      src={`http://127.0.0.1:8000/storage/images/${course.image}`}
+                      alt="{course.title}"
+                      className="w-16 h-16"
                     />
                   </td>
                   <td className="px-6 py-4">{course.description}</td>
