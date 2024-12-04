@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const Card = ({ courses = [] }) => {
-  console.log("data what we getting" + courses);
-
+  
   return (
     <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 m-4">
       {courses.length > 0 ? (
         courses.map((course) => (
           <NavLink
-            key={course.id}
-            to={`/course/${course.id}`}
+            key={`${course.slug}`}
+            to={`/course/${course.slug}`}
             className="p-5 shadow-lg rounded cursor-pointer"
           >
             <div>

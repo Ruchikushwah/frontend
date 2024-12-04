@@ -56,12 +56,12 @@ const ManageCourse = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    let resp = await fetch(`http://127.0.0.1:8000/api/courses/${id}`, {
+  const handleDelete = async (slug) => {
+    let resp = await fetch(`http://127.0.0.1:8000/api/courses/${slug}`, {
       method: "DELETE",
     });
     if (resp.ok) {
-      console.log(`course ${id} deleted successfully`);
+      console.log(`course${slug} deleted successfully`);
     } else {
       console.error("failed to delete course", resp);
     }
@@ -69,7 +69,7 @@ const ManageCourse = () => {
 
   return (
     <>
-      <div className="relative overflow-x-auto w-full py-10 px-8">
+      <div className="relative overflow-x-auto w-full py-10 px-8 h-screen">
         <h2 className="text-lg font-bold text-gray-700 border-l-4 border-teal-600 p-1">
           Manage Courses
         </h2>
@@ -197,7 +197,7 @@ const ManageCourse = () => {
             <tbody>
               {record.map((course) => (
                 <tr
-                  className="bg-white border-b hover:bg-gray-50"
+                  className="bg-white border-b hover:bg-gray-50 "
                   key={course.id}
                 >
                   <td className="px-6 py-4">{course.id}</td>
@@ -207,23 +207,30 @@ const ManageCourse = () => {
                     <img
                       src={`http://127.0.0.1:8000/storage/images/${course.image}`}
                       alt="{course.title}"
-                      className="w-16 h-16"
+                      className="w-10 h-10"
                     />
                   </td>
-                  <td className="px-6 py-4">{course.description}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4  ">{course.description}</td>
+                  <td className="px-6 py-4 flex gap-2 items-center">
                     <Link
-                      to={`update/${course.id}`}
+                      to={`update/${course. course_slug}`}
                       className="text-blue-500 hover:underline"
                     >
                       Edit
                     </Link>
                     <button
-                      className="ml-2 text-red-500 hover:underline"
-                      onClick={() => handleDelete(course.id)}
+                      className="ml-2 text-red-500 hover:underline items-center"
+                      onClick={() => handleDelete(course.course_slug)}
                     >
                       Delete
                     </button>
+                    <Link
+                      to={`/admin/insertchapter/${course.course_slug}`}
+                      className=" text-white px-2 py-2 bg-teal-500
+                     text-center"
+                    >
+                      Add Chapter
+                    </Link>
                   </td>
                 </tr>
               ))}
