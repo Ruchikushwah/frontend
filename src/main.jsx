@@ -24,7 +24,9 @@ import Update from "./Admin/Update.jsx";
 import ChapterEdit from "./Admin/ChapterEdit.jsx";
 import InsertChapter from "./Admin/InsertChapter.jsx";
 
-const Dashboard = lazy(()=> wait(500).then(()=> import('./Admin/Dashboard.jsx')))
+const Dashboard = lazy(() =>
+  wait(500).then(() => import("./Admin/Dashboard.jsx"))
+);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,15 +39,13 @@ const router = createBrowserRouter(
         <Route path="/admin/managecourse" element={<ManageCourse />} />
         <Route path="/admin/managechapter" element={<ManageChapter />} />
         <Route
-          path="/admin/insertchapter/:slug"
-          element={<InsertChapter />}/>
+          path="/admin/insertchapter/:id/:slug"
+          element={<InsertChapter />}
+        />
         <Route path="/admin/managetopic" element={<ManageTopic />} />
         <Route path="/admin/managepost" element={<ManagePost />} />
         <Route path="/admin/manageauthor" element={<ManageAuthor />} />
-        <Route
-          path="/admin/managecourse/update/:slug"
-          element={<Update />}
-        />
+        <Route path="/admin/managecourse/update/:slug" element={<Update />} />
         <Route
           path="/admin/managechapter/chapterEdit/:slug"
           element={<ChapterEdit />}
@@ -58,12 +58,12 @@ const router = createBrowserRouter(
 );
 
 const wait = (time) => {
-  return new Promise(resolve =>{
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve()
-    },time)
-  })
-}
+      resolve();
+    }, time);
+  });
+};
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

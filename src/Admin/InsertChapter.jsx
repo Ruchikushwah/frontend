@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, {  useState } from "react";
+import { useParams } from "react-router-dom";
 
 const InsertChapter = () => {
-  const [chapterName,setChapterName] = useState('');
-  const [chapterDescription,setChapterDescription] = useState('');
+  const { id } = useParams();
+
+  const [chapterName, setChapterName] = useState("");
+  const [chapterDescription, setChapterDescription] = useState("");
   const [order, setOrder] = useState("");
 
   const handleSubmit = async () => {
     const chapterData = {
-      chapter_name:chapterName,
-      chapter_description:chapterDescription,
-      order:order,
+      chapter_name: chapterName,
+      chapter_description: chapterDescription,
+      order: order,
+      course_id: id,
     };
 
-    try{
-      const response = await fetch('http://127.0.0.1:8000/api/chapter', {
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/chapter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -22,26 +26,22 @@ const InsertChapter = () => {
       });
 
       const result = await response.json();
-      
 
-      if(response.ok){
-        alert('Chapter Added Successfully');
+      if (response.ok) {
+        alert("Chapter Added Successfully");
 
-        setChapterName('');
-        setChapterDescription('');
-        setOrder('');
-       
-      } else{
-        alert('Failed to add chapter');
+        setChapterName("");
+        setChapterDescription("");
+        setOrder("");
+      } else {
+        alert("Failed to add chapter");
       }
-    }catch(error){
-      console.error('Error:',error);
-      alert('Error occured while adding chapter');
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error occured while adding chapter");
     }
-    
-
-  }
-return (
+  };
+  return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
       <div className="w-full max-w-md p-6 bg-white rounded shadow-lg">
         <h2 className="text-lg font-bold text-gray-700 mb-4">Insert Chapter</h2>
@@ -109,6 +109,6 @@ return (
       </div>
     </div>
   );
-}
+};
 
-export default InsertChapter
+export default InsertChapter;
