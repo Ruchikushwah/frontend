@@ -1,9 +1,10 @@
 import { div, param } from "framer-motion/client";
 import React, { useEffect, useState } from "react";
-import Title from "./Title";
-import Description from "./Description";
+
 import { useParams } from "react-router-dom";
 import Image from "./Image";
+import ChapterName from "./ChapterName";
+import ChapterDescription from "./ChapterDescription";
 
 const ChapterEdit = () => {
   const { id } = useParams();
@@ -28,8 +29,8 @@ const ChapterEdit = () => {
 
   return (
     <div className="grid grid-cols-2 gap-4  px-6 py-4 w-full">
-      <Title label="title" field={record.title} />
-      <Description label="Description" field={record.Description}/>
+      <ChapterName label="title" field={record.title} />
+      <ChapterDescription label="Description" field={record.Description}/>
       <Image label="image" field={record.Image}/>
     </div>
   );

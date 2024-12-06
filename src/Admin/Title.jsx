@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Title = ({ label, field }) => {
@@ -7,9 +7,7 @@ const Title = ({ label, field }) => {
 
   const { id } = useParams();
 
-
-
-  const handleUpdate = async () => {
+const handleUpdate = async () => {
     let resp = await fetch(`http://127.0.0.1:8000/api/courses/${id}`, {
       method: "PUT",
       body: JSON.stringify({title}),

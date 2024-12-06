@@ -6,9 +6,6 @@ const Description = ({ label, field }) => {
   const [description, setDescription] = useState(field);
 
   const { id } = useParams();
-
-
-
   const handleUpdate = async () => {
     let resp = await fetch(`http://127.0.0.1:8000/api/courses/${id}`, {
       method: "PUT",
@@ -22,10 +19,7 @@ const Description = ({ label, field }) => {
     setEdit(false);
     setDescription("");
   };
-
-  
-
-  return (
+ return (
     <div className=" border bg-gray-200  h-44  justify-center items-center flex flex-col gap-3 p-2 m-2 rounded-lg ">
       <label className=" mt-2 font-semibold">{label}</label>
       <input
