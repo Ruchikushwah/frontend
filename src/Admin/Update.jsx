@@ -5,13 +5,13 @@ import Description from "./Description";
 import Image from "./Image";
 
 const Update = () => {
-  const {  slug } = useParams();
+  const { id } = useParams();
   const [record, setRecord] = useState(null); 
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/courses/${slug}`);
+        const response = await fetch(`http://127.0.0.1:8000/api/courses/${id}`);
         const data = await response.json();
 
         console.log(data);
@@ -28,20 +28,17 @@ const Update = () => {
     };
 
     fetchCourses();
-  }, [ slug]); 
-
-
-   if (!record) {
-     return <div>Loading...</div>;
-   }
+  }, [id]); 
 
  
- 
+  if (!record) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="grid grid-cols-2 gap-4 px-6 py-4 w-full">
       <Title label="Title" field={record.title} />
-      <Description label="Description"  field={record.description} />
+      <Description label="Description" field={record.description} />
 
         <Image
           label="Image"

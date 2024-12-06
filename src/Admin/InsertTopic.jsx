@@ -1,63 +1,63 @@
+import { div } from "framer-motion/client";
 import React, {  useState } from "react";
 import { useParams } from "react-router-dom";
 
-const InsertChapter = () => {
+const InsertTopic = () => {
   const { id } = useParams();
 
-  const [chapterName, setChapterName] = useState("");
-  const [chapterDescription, setChapterDescription] = useState("");
+  const [topicName, setTopicName] = useState("");
+  const [topicDescription, setTopicDescription] = useState("");
   const [order, setOrder] = useState("");
 
   const handleSubmit = async () => {
-    const chapterData = {
-      chapter_name: chapterName,
-      chapter_description: chapterDescription,
+    const topicData = {
+      topic_name: topicName,
+      topic_description: topicDescription,
       order: order,
-      course_id: id,
+      chapter_id: id,
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/chapter", {
+      const response = await fetch("http://127.0.0.1:8000/api/topic", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(chapterData),
+        body: JSON.stringify(topicData),
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        alert("Chapter Added Successfully");
+        alert("Topic Added Successfully");
 
-        setChapterName("");
-        setChapterDescription("");
+        setTopicName("");
+        setTopicDescription("");
         setOrder("");
       } else {
-        alert("Failed to add chapter");
+        alert("Failed to add topic");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Error occured while adding chapter");
+      alert("Error occured while adding topic");
     }
   };
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-      <div className="w-full max-w-md p-6 bg-white rounded shadow-lg">
-        <h2 className="text-lg font-bold text-gray-700 mb-4">Insert Chapter</h2>
-
+   <div className="w-full  flex items-center justify-center bg-gray">
+      <div className="flex flex-col  w-6/12 p-6 bg-white rounded shadow border border-teal-400">
+       
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-600 mb-1"
+            className=" text-sm font-medium text-gray-600 mb-1"
           >
-            Chapter Name
+            Topic Name
           </label>
           <input
             type="text"
             id="name"
-            value={chapterName}
-            onChange={(e) => setChapterName(e.target.value)}
+            value={topicName}
+            onChange={(e) => setTopicName(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
             placeholder="Enter your name"
             required
@@ -69,12 +69,12 @@ const InsertChapter = () => {
             htmlFor="descrition"
             className="block text-sm font-medium text-gray-600 mb-1"
           >
-            Chapter Description
+            Topic Description
           </label>
           <textarea
             id="description"
-            value={chapterDescription}
-            onChange={(e) => setChapterDescription(e.target.value)}
+            value={topicDescription}
+            onChange={(e) => setTopicDescription(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200"
             placeholder="Enter your chapter description"
             rows="4"
@@ -107,8 +107,9 @@ const InsertChapter = () => {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+    
   );
 };
 
-export default InsertChapter;
+export default InsertTopic;
