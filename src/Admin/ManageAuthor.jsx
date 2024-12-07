@@ -80,7 +80,7 @@ const ManageAuthor = () => {
                   <td className="px-6 py-4">{author.email}</td>
                   <td className="px-6 py-4">
                     <img
-                      src={`http://127.0.0.1:8000/storage/authors/${author.image}`}
+                      src={`http://127.0.0.1:8000/storage/${author.image}`}
                       className="w-16 h-16"
                     />
                   </td>
@@ -95,11 +95,7 @@ const ManageAuthor = () => {
                       Delete
                     </button>
 
-                    <Link to={"/admin/insertpost/:id/:slug"}>
-                      <button className="px-4 py-2 text-white bg-teal-500 rounded hover:teal-blue-600 ml-6">
-                        Add Post
-                      </button>
-                    </Link>
+                    
                   </td>
                 </tr>
               ))}

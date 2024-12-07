@@ -1,6 +1,6 @@
 import { div } from "framer-motion/client";
 import React, {  useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const InsertTopic = () => {
   const { id } = useParams();
@@ -8,6 +8,7 @@ const InsertTopic = () => {
   const [topicName, setTopicName] = useState("");
   const [topicDescription, setTopicDescription] = useState("");
   const [order, setOrder] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const topicData = {
@@ -34,8 +35,10 @@ const InsertTopic = () => {
         setTopicName("");
         setTopicDescription("");
         setOrder("");
+        navigate("/admin/managetopic");
       } else {
         alert("Failed to add topic");
+        
       }
     } catch (error) {
       console.error("Error:", error);

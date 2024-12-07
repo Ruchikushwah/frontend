@@ -1,11 +1,12 @@
 import React, {  useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const InsertChapter = () => {
   const { id } = useParams();
   const [chapterName, setChapterName] = useState("");
   const [chapterDescription, setChapterDescription] = useState("");
   const [order, setOrder] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const chapterData = {
@@ -32,6 +33,7 @@ const InsertChapter = () => {
         setChapterName("");
         setChapterDescription("");
         setOrder("");
+        navigate("/admin/managechapter");
       } else {
         alert("Failed to add chapter");
       }
