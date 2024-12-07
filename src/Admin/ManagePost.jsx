@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ManagePost = () => {
   return (
@@ -14,9 +15,11 @@ const ManagePost = () => {
             placeholder="Search..."
             className="p-2 border rounded w-full md:w-64 focus:outline-none"
           />
-          <button className="px-4 py-2 font-semibold text-white bg-teal-500 rounded hover:bg-teal-600 w-full md:w-auto">
-            Insert Post
-          </button>
+          <Link to={"/admin/insertpost/:id/:slug"}>
+            <button className="px-4 py-2 font-semibold text-white bg-teal-500 rounded hover:bg-teal-600 w-full md:w-auto">
+              Insert Post
+            </button>
+          </Link>
         </div>
 
         <div className="overflow-x-auto">

@@ -29,7 +29,7 @@ const ManageTopic = () => {
     if (resp.ok) {
       console.log(`topic ${id} deleted successfully`);
     } else {
-      console.error("failed to delete topic", resp);
+      console.error("Failed to delete topic", resp);
     }
   };
 
@@ -45,47 +45,54 @@ const ManageTopic = () => {
           placeholder="Search..."
           className="p-2 border rounded w-full md:w-64 focus:outline-none"
         />
-
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-400 uppercase bg-gray-100">
             <tr>
-              <th scope="col" className="px-6 py-3">ID</th>
-              <th scope="col" className="px-6 py-3">Topic Name</th>
-              <th scope="col" className="px-6 py-3"> topic Description</th>
-              <th scope="col" className="px-6 py-3">Slug</th>
-              <th scope="col" className="px-6 py-3">Actions</th>
+              <th scope="col" className="px-6 py-3">
+                ID
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Topic Name
+              </th>
+              <th scope="col" className="px-6 py-3">
+                {" "}
+                topic Description
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Slug
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
             {record.map((topic) => (
-              <tr
-                className="bg-white border-b hover:bg-gray-50"
-                key={topic.id}
-              >
+              <tr className="bg-white border-b hover:bg-gray-50" key={topic.id}>
                 <td className="px-6 py-4">{topic.id}</td>
-                <td className="px-6 py-4">{topic.topic_name }</td>
-                <td className="px-6 py-4">{topic.topic_description }</td>
-                <td className="px-6 py-4">{topic.topic_slug }</td>
+                <td className="px-6 py-4">{topic.topic_name}</td>
+                <td className="px-6 py-4">{topic.topic_description}</td>
+                <td className="px-6 py-4">{topic.topic_slug}</td>
                 <td className="px-6 py-4">
                   <button className="text-blue-500 hover:underline mr-2">
                     Edit
                   </button>
                   <button
-                      className="ml-2 text-red-500 hover:underline"
-                      onClick={() => handleDelete(topic.id)}
-                    >
-                      Delete
-                    </button>
-                    <Link
-                      to={`/admin/inserttopic/${topic.id}/${topic.topic_slug}`}
-                      className=" text-white px-2 py-2 bg-teal-500
+                    className="ml-2 text-red-500 hover:underline"
+                    onClick={() => handleDelete(topic.id)}
+                  >
+                    Delete
+                  </button>
+                  <Link
+                    to={"/admin/insertpost/:id/:slug"}
+                    className=" text-white px-2 py-2 bg-teal-500
                      text-center"
-                    >
-                      Add post
-                    </Link>
+                  >
+                    Add post
+                  </Link>
                 </td>
               </tr>
             ))}

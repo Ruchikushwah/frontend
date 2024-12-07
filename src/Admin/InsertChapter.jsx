@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 const InsertChapter = () => {
   const { id } = useParams();
-
   const [chapterName, setChapterName] = useState("");
   const [chapterDescription, setChapterDescription] = useState("");
   const [order, setOrder] = useState("");

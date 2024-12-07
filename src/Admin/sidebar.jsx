@@ -68,20 +68,7 @@ const Sidebar = () => {
               </span>
             </li>
           </NavLink>
-          <NavLink to="insertcourse">
-            <li
-              className={`text-gray-300 text-sm flex items-center gap-x-4 p-2 rounded-md cursor-pointer hover:bg-gray-700 ${
-                isOpen && "pl-4"
-              }`}
-            >
-              <span className="material-icons">
-                <GrChapterAdd className=" size-6" />
-              </span>
-              <span className={`${!isOpen && "hidden"} duration-300`}>
-              insert course
-              </span>
-            </li>
-          </NavLink>
+
           <NavLink to="managetopic">
             <li
               className={`text-gray-300 text-sm flex items-center gap-x-4 p-2 rounded-md cursor-pointer hover:bg-gray-700 ${
@@ -96,20 +83,6 @@ const Sidebar = () => {
               </span>
             </li>
           </NavLink>
-          <NavLink to="managepost">
-            <li
-              className={`text-gray-300 text-sm flex items-center gap-x-4 p-2 rounded-md cursor-pointer hover:bg-gray-700 ${
-                isOpen && "pl-4"
-              }`}
-            >
-              <span className="material-icons">
-                <MdOutlinePostAdd className=" size-6" />
-              </span>
-              <span className={`${!isOpen && "hidden"} duration-300`}>
-                Manage Post
-              </span>
-            </li>
-          </NavLink>
           <NavLink to="manageauthor">
             <li
               className={`text-gray-300 text-sm flex items-center gap-x-4 p-2 rounded-md cursor-pointer hover:bg-gray-700 ${
@@ -121,6 +94,20 @@ const Sidebar = () => {
               </span>
               <span className={`${!isOpen && "hidden"} duration-300`}>
                 Manage Author
+              </span>
+            </li>
+          </NavLink>
+          <NavLink to="managepost">
+            <li
+              className={`text-gray-300 text-sm flex items-center gap-x-4 p-2 rounded-md cursor-pointer hover:bg-gray-700 ${
+                isOpen && "pl-4"
+              }`}
+            >
+              <span className="material-icons">
+                <MdOutlinePostAdd className=" size-6" />
+              </span>
+              <span className={`${!isOpen && "hidden"} duration-300`}>
+                Manage Post
               </span>
             </li>
           </NavLink>
