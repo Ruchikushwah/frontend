@@ -25,6 +25,7 @@ import InsertChapter from "./Admin/InsertChapter.jsx";
 import InsertTopic from "./Admin/InsertTopic.jsx";
 import InsertPost from "./Admin/InsertPost.jsx";
 import InsertAuthor from "./Admin/InsertAuthor.jsx";
+import ManageAuthor from "./Admin/ManageAuthor.jsx";
 
 const Dashboard = lazy(() =>
   wait(500).then(() => import("./Admin/Dashboard.jsx"))
@@ -47,6 +48,7 @@ const router = createBrowserRouter(
         <Route path="/admin/managetopic" element={<ManageTopic />} />
         <Route path="/admin/inserttopic/:id/:slug" element={<InsertTopic />} />
         <Route path="/admin/managepost" element={<ManagePost />} />
+        <Route path="/admin/manageauthor" element={<ManageAuthor/>} />
        
         <Route path="/admin/insertpost/:id/:slug" element={<InsertPost />} />
        
