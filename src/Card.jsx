@@ -10,7 +10,7 @@ const Card = ({ courses = [] }) => {
         courses.map((course) => (
           <NavLink
             key={course.id}
-            to={`/course/${course.id}`}
+            to={`/viewcourse/${course.id}`}
             className="p-5 shadow-lg rounded cursor-pointer"
           >
             <div>

@@ -5,7 +5,6 @@ import Sidebar from "./sidebar";
 import { BeatLoader } from "react-spinners";
 
 
-
 const AdminLayout = () => {
   return (
     <>
@@ -17,9 +16,10 @@ const AdminLayout = () => {
 
             <Suspense
               fallback={
-                
-                  <BeatLoader color="#1fd3d1" className=" flex justify-center items-center flex-1 " />
-                
+                <BeatLoader
+                  color="#1fd3d1"
+                  className=" flex justify-center items-center flex-1 "
+                />
               }
             >
               <Outlet />

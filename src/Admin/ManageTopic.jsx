@@ -76,7 +76,7 @@ const ManageTopic = () => {
                 <td className="px-6 py-4">{topic.topic_name}</td>
                 <td className="px-6 py-4">{topic.topic_description}</td>
                 <td className="px-6 py-4">{topic.topic_slug}</td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 flex gap-3">
                   <button className="text-blue-500 hover:underline mr-2">
                     Edit
                   </button>
@@ -87,12 +87,12 @@ const ManageTopic = () => {
                     Delete
                   </button>
                   <Link
-                    to={"/admin/insertpost/:id/:slug"}
-                    className=" text-white px-2 py-2 bg-teal-500
-                     text-center"
-                  >
-                    Add post
-                  </Link>
+                      to={`/admin/insertpost/${topic.id}`}
+                      className=" text-white px-2 py-2 bg-teal-500
+                     text-center  rounded-md"
+                    >
+                      Add Post
+                    </Link>
                 </td>
               </tr>
             ))}

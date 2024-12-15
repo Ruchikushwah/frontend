@@ -12,6 +12,7 @@ import Layout from "./Layout.jsx";
 import Home from "./Home/Home.jsx";
 import AdminLayout from "./Admin/AdminLayout.jsx";
 import ManageCourse from "./Admin/ManageCourse.jsx";
+
 //import Dashboard from "./Admin/Dashboard.jsx";
 import ManageChapter from "./Admin/ManageChapter.jsx";
 import ManageTopic from "./Admin/ManageTopic.jsx";
@@ -26,6 +27,7 @@ import InsertTopic from "./Admin/InsertTopic.jsx";
 import InsertPost from "./Admin/InsertPost.jsx";
 import InsertAuthor from "./Admin/InsertAuthor.jsx";
 import ManageAuthor from "./Admin/ManageAuthor.jsx";
+import ViewCourse from "./ViewCourse.jsx";
 
 const Dashboard = lazy(() =>
   wait(500).then(() => import("./Admin/Dashboard.jsx"))
@@ -36,10 +38,12 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
+        <Route path="viewcourse" element={<ViewCourse/>}/>
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<Dashboard />} />
+      <Route path="/admin/dashboard" element={<Dashboard/>} />
         <Route path="/admin/managecourse" element={<ManageCourse />} />
+        
         <Route path="/admin/managechapter" element={<ManageChapter />} />
         <Route
           path="/admin/insertchapter/:id/:slug"
@@ -49,8 +53,7 @@ const router = createBrowserRouter(
         <Route path="/admin/inserttopic/:id/:slug" element={<InsertTopic />} />
         <Route path="/admin/managepost" element={<ManagePost />} />
         <Route path="/admin/manageauthor" element={<ManageAuthor/>} />
-       
-        <Route path="/admin/insertpost/:id/:slug" element={<InsertPost />} />
+        <Route path="/admin/insertpost/:id" element={<InsertPost />} />
        
         <Route
           path="/admin/insertauthor/:id/:slug"

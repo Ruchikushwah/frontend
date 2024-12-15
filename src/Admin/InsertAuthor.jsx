@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const InsertAuthor = () => {
   const [authorname, setAuthorName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
+  const navigate = useNavigate();
 
   const handleAuthor = async () => {
     const formData = new FormData();
@@ -16,7 +18,6 @@ const InsertAuthor = () => {
     try {
       const response = await fetch("http://127.0.0.1:8000/api/authors", {
         method: "POST",
-       
         body: formData,
       });
 
@@ -27,6 +28,7 @@ const InsertAuthor = () => {
         setEmail("");
         setPassword("");
         setImage("");
+        navigate("/admin/manageauthor");
        
       } else {
         alert("Failed to add Author");
