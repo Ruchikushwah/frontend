@@ -80,9 +80,7 @@ const ManageAuthor = () => {
                   <td className="px-6 py-4">{author.email}</td>
                   <td className="px-6 py-4">
                     <img
-                      src={`http://127.0.0.1:8000/storage/authors/${author.image}`}
-                      className="w-16 h-16"
-                    />
+                      src={`http://127.0.0.1:8000/storage/${author.image}`}className="w-16 h-16"/>
                   </td>
                   <td className="px-6 py-4 gap-4">
                     <button className="text-blue-500 hover:underline">

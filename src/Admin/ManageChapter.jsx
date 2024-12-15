@@ -55,11 +55,21 @@ const ManageChapter = () => {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-400 uppercase bg-gray-100">
             <tr>
-              <th scope="col" className="px-6 py-3">ID</th>
-              <th scope="col" className="px-6 py-3">Chapter Name</th>
-              <th scope="col" className="px-6 py-3">Description</th>
-              <th scope="col" className="px-6 py-3">Slug</th>
-              <th scope="col" className="px-6 py-3">Actions</th>
+              <th scope="col" className="px-6 py-3">
+                ID
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Chapter Name
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Description
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Slug
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -69,26 +79,28 @@ const ManageChapter = () => {
                 key={chapter.id}
               >
                 <td className="px-6 py-4">{chapter.id}</td>
-                <td className="px-6 py-4">{chapter.chapter_name }</td>
-                <td className="px-6 py-4">{chapter.chapter_description }</td>
-                <td className="px-6 py-4">{chapter.chapter_slug }</td>
+                <td className="px-6 py-4">{chapter.chapter_name}</td>
+                <td className="px-6 py-4">{chapter.chapter_description}</td>
+                <td className="px-6 py-4">{chapter.chapter_slug}</td>
                 <td className="px-6 py-4">
-                  <button className="text-blue-500 hover:underline mr-2">
-                    Edit
-                  </button>
-                  <button
-                      className="ml-2 text-red-500 hover:underline"
-                      onClick={() => handleDelete(chapter.id)}
-                    >
-                      Delete
+                  <Link to={`chapteredit/${chapter.id}`}>
+                    <button className="text-blue-500 hover:underline mr-2">
+                      Edit
                     </button>
-                    <Link
-                      to={`/admin/inserttopic/${chapter.id}/${chapter.chapter_slug}`}
-                      className=" text-white px-2 py-2 bg-teal-500
+                  </Link>
+                  <button
+                    className="ml-2 text-red-500 hover:underline"
+                    onClick={() => handleDelete(chapter.id)}
+                  >
+                    Delete
+                  </button>
+                  <Link
+                    to={`/admin/inserttopic/${chapter.id}/${chapter.chapter_slug}`}
+                    className=" text-white px-2 py-2 bg-teal-500
                      text-center"
-                    >
-                      Add Topic
-                    </Link>
+                  >
+                    Add Topic
+                  </Link>
                 </td>
               </tr>
             ))}
