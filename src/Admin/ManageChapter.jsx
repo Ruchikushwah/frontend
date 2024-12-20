@@ -94,10 +94,10 @@ const ManageChapter = () => {
                 key={chapter.id}
               >
                 <td className="px-6 py-4">{chapter.id}</td>
-                <td className="px-6 py-4">{chapter.chapter_name}</td>
-                <td className="px-6 py-4">{chapter.chapter_description}</td>
-                <td className="px-6 py-4">{chapter.chapter_slug}</td>
-                <td className="px-6 py-4 gap-3 flex ">
+                <td className="px-6 py-4">{chapter.chapter_name }</td>
+                <td className="px-6 py-4">{chapter.chapter_description }</td>
+                <td className="px-6 py-4">{chapter.chapter_slug }</td>
+                <td className="px-6 py-4">
                   <button className="text-blue-500 hover:underline mr-2">
                     Edit
                   </button>

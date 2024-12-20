@@ -17,20 +17,11 @@ const Home = () => {
   }, []);
   return (
     <>
-      <div className="flex items-center justify-center h-[500px] flex-col bg-black">
-        <div className="w-6/12 text-center gap-5 flex flex-col items-center text-white ">
-          <h2 className="text-5xl font-semibold ">From Syntax To Success</h2>
-          <p className="line-clamp-3 tracking-wider text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-            quasi corrupti deserunt tenetur dicta repellendus libero nisi.
-          </p>
-          <input
-            type="text"
-            placeholder="Search..."
-            className="px-4 py-3 border rounded-3xl p-10 focus:outline-none"
-          />
-        </div>
-      </div>
+     <div className=" flex flex-1">
+      <img src=" " alt="" />
+      <p></p>
+
+     </div>
 
       <div>
         <Card courses={courses} />

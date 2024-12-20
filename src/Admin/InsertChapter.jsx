@@ -27,7 +27,7 @@ const InsertChapter = () => {
 
       const result = await response.json();
 
-      if (response.ok) {
+      if (result.ok) {
         alert("Chapter Added Successfully");
 
         setChapterName("");
