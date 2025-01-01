@@ -36,12 +36,12 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
-        <Route path="viewcourse" element={<ViewCourse/>}/>
+        <Route path="viewcourse" element={<ViewCourse />} />
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
-      <Route path="/admin/dashboard" element={<Dashboard/>} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/managecourse" element={<ManageCourse />} />
-        
+
         <Route path="/admin/managechapter" element={<ManageChapter />} />
         <Route
           path="/admin/insertchapter/:id/:slug"
@@ -50,9 +50,9 @@ const router = createBrowserRouter(
         <Route path="/admin/managetopic" element={<ManageTopic />} />
         <Route path="/admin/inserttopic/:id/:slug" element={<InsertTopic />} />
         <Route path="/admin/managepost" element={<ManagePost />} />
-        <Route path="/admin/manageauthor" element={<ManageAuthor/>} />
+        <Route path="/admin/manageauthor" element={<ManageAuthor />} />
         <Route path="/admin/insertpost/:id" element={<InsertPost />} />
-       
+
         <Route
           path="/admin/insertauthor/:id/:slug"
           element={<InsertAuthor />}
