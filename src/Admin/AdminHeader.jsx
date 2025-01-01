@@ -1,4 +1,5 @@
 import React from "react";
+import AvatarEditor from "react-avatar-editor";
 
 import { Link } from "react-router-dom";
 
@@ -13,6 +14,15 @@ const AdminHeader = () => {
           </svg>
           <span className="text-2xl font-bold text-white">Learn Syntax</span>
         </div>
+        <AvatarEditor
+          image="http://example.com/initialimage.jpg"
+          width={30}
+          height={30}
+          border={5}
+          color={[255, 255, 255, 0.6]} // RGBA
+          scale={1.2}
+          rotate={0}
+        />
 
         <button>
           <Link href="" className=" px-3 py-2 text-white bg-gray-700 rounded">

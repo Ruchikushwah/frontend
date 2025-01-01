@@ -17,7 +17,6 @@ import ManageCourse from "./Admin/ManageCourse.jsx";
 import ManageChapter from "./Admin/ManageChapter.jsx";
 import ManageTopic from "./Admin/ManageTopic.jsx";
 import ManagePost from "./Admin/ManagePost.jsx";
-
 import Register from "./Auth/Register.jsx";
 import Login from "./Auth/Login.jsx";
 import Update from "./Admin/Update.jsx";
@@ -30,8 +29,7 @@ import ManageAuthor from "./Admin/ManageAuthor.jsx";
 import ViewCourse from "./ViewCourse.jsx";
 
 const Dashboard = lazy(() =>
-  wait(500).then(() => import("./Admin/Dashboard.jsx"))
-);
+  wait(500).then(() => import("./Admin/Dashboard.jsx")));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
