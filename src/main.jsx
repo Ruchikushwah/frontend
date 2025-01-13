@@ -27,6 +27,7 @@ import InsertPost from "./Admin/InsertPost.jsx";
 import InsertAuthor from "./Admin/InsertAuthor.jsx";
 import ManageAuthor from "./Admin/ManageAuthor.jsx";
 import ViewCourse from "./ViewCourse.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const Dashboard = lazy(() =>
   wait(500).then(() => import("./Admin/Dashboard.jsx")));
@@ -79,6 +80,8 @@ const wait = (time) => {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <GoogleOAuthProvider clientId="3535758964-0tv5dmmi534t0j541so6el69n4gq7f0j.apps.googleusercontent.com">
+      <RouterProvider router={router} />
+    </GoogleOAuthProvider>
   </StrictMode>
 );

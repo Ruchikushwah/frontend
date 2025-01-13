@@ -1,6 +1,7 @@
+import { GoogleLogin } from "@react-oauth/google";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { jwtDecode } from "jwt-decode";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,7 +38,16 @@ const Register = () => {
         <h2 className="text-2xl font-bold text-center text-gray-700">
           Register
         </h2>
-
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+            console.log(credentialResponseDecoded);
+          }}
+          onError={() => {
+            console.log("Login Failed");
+          }}
+        />
+        
         <div>
           <label className="block text-sm font-medium text-gray-600">
             Name

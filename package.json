@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.12.1",
     "ace-builds": "^1.37.1",
     "chart.js": "^4.4.7",
     "framer-motion": "^11.11.17",
+    "jwt-decode": "^4.0.0",
     "react": "^18.3.1",
     "react-ace": "^13.0.0",
     "react-avatar-editor": "^13.0.2",

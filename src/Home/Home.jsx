@@ -5,20 +5,22 @@ import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { BounceLoader } from "react-spinners";
 
 const Home = () => {
   const [code, setCode] = useState("");
   const [theme, setTheme] = useState("monokai");
   const [output, setOutput] = useState("");
   const [language, setLanguage] = useState("");
+  const [loading, setLoading] = useState(false); // Loader state
 
   const handleChange = (newValue) => {
     setCode(newValue);
   };
 
   const runCode = async () => {
+    setLoading(true); // Start loader
     try {
-      // Send the code and language to the backend API
       const response = await fetch("http://127.0.0.1:8000/api/v2/execute", {
         method: "POST",
         headers: {
@@ -34,6 +36,8 @@ const Home = () => {
       setOutput(result.output || "No output from the code.");
     } catch (error) {
       setOutput(`Error: ${error.message}`);
+    } finally {
+      setLoading(false); // Stop loader
     }
   };
 
@@ -72,8 +76,9 @@ const Home = () => {
         <button
           className="p-2 bg-blue-500 text-white rounded mb-2 self-center mt-2"
           onClick={runCode}
+          disabled={loading} 
         >
-          Run Code
+          {loading ? "Running..." : "Run Code"}
         </button>
       </div>
       <div className="flex flex-1">
@@ -96,7 +101,13 @@ const Home = () => {
 
         <div className="mt-5 flex flex-1 flex-col">
           <h3>Output:</h3>
-          <pre className="bg-gray-100 p-5">{output}</pre>
+          {loading ? (
+            <div className="loader">
+              <BounceLoader />
+            </div> 
+          ) : (
+            <pre className="bg-gray-100 p-5">{output}</pre>
+          )}
         </div>
       </div>
     </div>
